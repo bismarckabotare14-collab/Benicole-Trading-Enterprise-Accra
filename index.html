@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benicole Musical Workshop - Premium Store</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#0a0a0a;
+color:#fff;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:999;
+background:#000;
+border-bottom:2px solid gold;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h1{
+color:gold;
+font-size:20px;
+margin:0;
+}
+
+nav{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+border:1px solid gold;
+padding:6px 10px;
+border-radius:6px;
+font-size:13px;
+}
+
+.hero{
+height:60vh;
+background:url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=4000&q=80') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero h2{
+background:rgba(0,0,0,0.6);
+padding:20px;
+border:2px solid gold;
+color:gold;
+font-size:28px;
+}
+
+.cart{
+position:fixed;
+right:10px;
+top:80px;
+background:#111;
+border:1px solid gold;
+padding:10px;
+border-radius:10px;
+z-index:1000;
+width:160px;
+}
+
+button{
+cursor:pointer;
+background:gold;
+border:none;
+padding:6px 10px;
+margin-top:5px;
+font-weight:bold;
+}
+
+section{
+padding:30px;
+}
+
+h2{
+color:gold;
+border-left:4px solid gold;
+padding-left:10px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.card{
+background:#111;
+border:1px solid #333;
+border-radius:10px;
+overflow:hidden;
+text-align:center;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.03);
+border-color:gold;
+}
+
+.card img{
+width:100%;
+height:140px;
+object-fit:cover;
+}
+
+.card p{
+margin:10px 0;
+}
+
+footer{
+text-align:center;
+padding:20px;
+border-top:1px solid #333;
+color:#aaa;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<h1>Benicole Musical Workshop</h1>
+<nav>
+<a href="#pianos">Pianos</a>
+<a href="#guitars">Guitars</a>
+<a href="#drums">Drums</a>
+<a href="#wind">Wind</a>
+<a href="#audio">Audio</a>
+</nav>
+</header>
+
+<div class="hero">
+<h2>Premium Musical Instruments & Professional Audio Equipment</h2>
+</div>
+
+<div class="cart">
+<h4>Cart</h4>
+<p id="count">Items: 0</p>
+<button onclick="checkout()">Checkout</button>
+</div>
+
+<section id="pianos">
+<h2>Grand & Digital Pianos</h2>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=4000&q=80"><p>Grand Piano</p><button onclick="add('Grand Piano')">Add</button></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=4000&q=80"><p>Upright Piano</p><button onclick="add('Upright Piano')">Add</button></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?auto=format&fit=crop&w=4000&q=80"><p>Digital Piano</p><button onclick="add('Digital Piano')">Add</button></div>
+</div>
+</section>
+
+<section id="guitars">
+<h2>Guitars Collection</h2>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=4000&q=80"><p>Electric Guitar</p><button onclick="add('Electric Guitar')">Add</button></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1520166012956-add9ba0835cb?auto=format&fit=crop&w=4000&q=80"><p>Acoustic Guitar</p><button onclick="add('Acoustic Guitar')">Add</button></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1612225330812-01a9c6b3555a?auto=format&fit=crop&w=4000&q=80"><p>Bass Guitar</p><button onclick="add('Bass Guitar')">Add</button></div>
+</div>
+</section>
+
+<section id="drums">
+<h2>Drums & Percussion</h2>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1513883049090-4b6b7f7f4f4b?auto=format&fit=crop&w=4000&q=80"><p>Acoustic Drums</p><button onclick="add('Acoustic Drums')">Add</button></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1511379938547-0c0c0c0c0c0c?auto=format&fit=crop&w=4000&q=80"><p>Electronic Drums</p><button onclick="add('Electronic Drums')">Add</button></div>
+</div>
+</section>
+
+<section id="wind">
+<h2>Wind Instruments</h2>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=4000&q=80"><p>Saxophone</p><button onclick="add('Saxophone')">Add</button></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1520166012956-0b0b0b0b0b0b?auto=format&fit=crop&w=4000&q=80"><p>Trumpet</p><button onclick="add('Trumpet')">Add</button></div>
+</div>
+</section>
+
+<section id="audio">
+<h2>Professional Audio Equipment</h2>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1512446733611-9099a758e1f3?auto=format&fit=crop&w=4000&q=80"><p>Studio Mixer</p><button onclick="add('Studio Mixer')">Add</button></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1526403222910-1a0a0a0a0a0a?auto=format&fit=crop&w=4000&q=80"><p>Studio Speakers</p><button onclick="add('Speakers')">Add</button></div>
+</div>
+</section>
+
+<section>
+<h2>Secure Checkout</h2>
+<p>No card details are stored. Payments are processed securely.</p>
+<button onclick="alert('Connect Paystack API')">Pay with Paystack</button>
+<button onclick="alert('Connect Flutterwave API')">Pay with Flutterwave</button>
+</section>
+
+<section>
+<h2>Contact</h2>
+<a style="color:gold" href="https://wa.me/233000000000">Order via WhatsApp</a>
+</section>
+
+<footer>
+<p>© 2026 Benicole Musical Workshop</p>
+</footer>
+
+<script>
+let cart=[];
+function add(item){cart.push(item);document.getElementById('count').innerText='Items: '+cart.length;}
+function checkout(){alert('Proceeding to checkout...');}
+</script>
+
+</body>
+</html>
